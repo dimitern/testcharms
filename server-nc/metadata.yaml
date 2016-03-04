@@ -1,0 +1,19 @@
+name: server-nc
+summary: A pristine Ubuntu Server with bindable relations and extra-bindings.
+maintainer: Charmers <juju@lists.ubuntu.com>
+description: |
+  This simply deploys Ubuntu Server and logs the result of network-get for each of its bindings (relation or extra).
+tags:
+     - misc
+provides:
+  server:
+    interface: ubuntu-nc
+peers:
+  cluster:
+    interface: server-cluster-nc
+storage:
+    root:
+        type: block
+extra-bindings:
+    monitoring:
+    admin:

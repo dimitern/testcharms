@@ -1,0 +1,46 @@
+#!/bin/bash
+
+hook_name="$JUJU_HOOK_NAME"
+rel_name="$JUJU_RELATION"
+rel_id="$JUJU_RELATION_ID"
+local_unit="$JUJU_UNIT_NAME"
+remove_unit="$JUJU_REMOTE_UNIT"
+private_ip="$(unit-get private-address)"
+public_ip="$(unit-get public-address)"
+
+public_api_address="$(network-get public-api --primary-address)"
+private_api_address="$(network-get private-api --primary-address)"
+cluster_address="$(network-get cluster --primary-address)"
+server_address="$(network-get server --primary-address)"
+
+juju-log "==== CLIENT-NC ===================================="
+juju-log "begin hook: '$hook_name' ($0)"
+juju-log "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+
+juju-log "relation name: '$rel_name'"
+juju-log "relation ID: '$rel_id'"
+juju-log "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+
+juju-log "local unit: '$local_unit'"
+juju-log "remote unit: '$remote_unit'"
+juju-log "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+
+juju-log "unit-get private-address: '$private_ip'"
+juju-log "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+
+juju-log "unit-get public-address: '$public_ip'"
+juju-log "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+
+juju-log "network-get public-api --primary-address: '$public_api_address'"
+juju-log "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+
+juju-log "network-get private-api --primary-address: '$private_api_address'"
+juju-log "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+
+juju-log "network-get cluster --primary-address: '$cluster_address'"
+juju-log "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+
+juju-log "network-get server --primary-address: '$server_address'"
+juju-log "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+
+juju-log "end hook: '$hook_name' ($0)"

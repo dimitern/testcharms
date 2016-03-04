@@ -1,0 +1,16 @@
+name: client-nc
+summary: A pristine Ubuntu Client with bindable relations and extra-bindings.
+maintainer: Charmers <juju@lists.ubuntu.com>
+description: |
+  This simply deploys Ubuntu Client and logs the result of network-get for each of its bindings (relation or extra).
+tags:
+     - misc
+peers:
+  cluster:
+    interface: client-cluster-nc
+requires:
+  server:
+    interface: ubuntu-nc
+extra-bindings:
+    public-api:
+    private-api:
