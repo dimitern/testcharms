@@ -11,9 +11,6 @@ provides:
 peers:
   cluster:
     interface: server-cluster-nc
-storage:
-    root:
-        type: block
 extra-bindings:
     monitoring:
     admin:

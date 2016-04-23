@@ -1,0 +1,28 @@
+# NOTE: Run $ juju deploy <path/to/this/bundle.yaml from <path/to/this>.
+services:
+  server-nc:
+    charm: ./xenial/server-nc
+    num_units: 1
+    exposed: true
+    to:
+        - "lxd:1"
+    bindings:
+      monitoring: demo-db # extra-binding name
+      cluster: storage    # (peer) relation name
+  client-nc:
+    charm: ./xenial/client-nc
+    num_units: 1
+    to:
+        - "lxd:1"
+    bindings:
+      public-api: public  # extra-binding name
+      server: admin       # (required) relation name
+      cluster: storage    # (peer) relation name
+series: xenial
+relations:
+- - server-nc:server
+  - client-nc:server
+machines:
+  "1": 
+    series: xenial
+    constraints: "arch=amd64 cpu-cores=1"
