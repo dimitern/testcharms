@@ -9,5 +9,7 @@ Can be related to the client-nc charm below.
 Same as above, simple ubuntu charm with (different) extra-bindings and hooks.
 Can be related to the server-nc charm.
 
-## bundle
+## client/server bundle
 Deploys one unit of server-nc and client-nc in LXD containers, specifying bindings.
+
+There are versions of both charms and the bundle for trusty and xenial.
