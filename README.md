@@ -12,4 +12,5 @@ Can be related to the server-nc charm.
 ## client/server bundle
 Deploys one unit of server-nc and client-nc in LXD containers, specifying bindings.
 
-There are versions of both charms and the bundle for trusty and xenial.
+There are versions of both charms and the bundle for trusty and xenial (different
+files for the bundle, symlinked identical subdirs with sources for the charms).
